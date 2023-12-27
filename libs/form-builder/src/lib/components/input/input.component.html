@@ -1,1 +1,20 @@
-<p>input component</p>
+<div class="form-group needs-validation">
+  <label [htmlFor]="">{{ control.label || '' }}</label>
+  <input
+    [id]="key"
+    type="text"
+    class="form-control"
+    [placeholder]="control.placeholder || ''"
+    [formControl]="formControl"
+    [class.is-invalid]="formControl.invalid && formControl.touched"
+  />
+
+  <ng-container *ngIf="formControl.errors && formControl.touched">
+    <span class="invalid-feedback">
+      <ng-container *ngFor="let error of formControl.errors | keysIn">
+        <!-- <pre>{{error}}</pre> -->
+        {{ validationMessages[error] }}
+      </ng-container>
+    </span>
+  </ng-container>
+</div>

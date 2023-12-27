@@ -1,0 +1,95 @@
+{
+  "name": "cs-ng-dev",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/cs-ng-dev/src",
+  "prefix": "cs-ng-library",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/cs-ng-dev",
+        "index": "apps/cs-ng-dev/src/index.html",
+        "main": "apps/cs-ng-dev/src/main.ts",
+        "polyfills": "apps/cs-ng-dev/src/polyfills.ts",
+        "tsConfig": "apps/cs-ng-dev/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/cs-ng-dev/src/favicon.ico",
+          "apps/cs-ng-dev/src/assets"
+        ],
+        "styles": ["apps/cs-ng-dev/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/cs-ng-dev/src/environments/environment.ts",
+              "with": "apps/cs-ng-dev/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "cs-ng-dev:build:production"
+        },
+        "development": {
+          "browserTarget": "cs-ng-dev:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "cs-ng-dev:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/cs-ng-dev/**/*.ts",
+          "apps/cs-ng-dev/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/cs-ng-dev"],
+      "options": {
+        "jestConfig": "apps/cs-ng-dev/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

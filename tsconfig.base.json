@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cs-ng/form-builder": ["libs/form-builder/src/index.ts"]
+      "@cs-ng/form-builder": ["libs/form-builder/src/index.ts"],
+      "@cs-ng/utils": ["libs/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

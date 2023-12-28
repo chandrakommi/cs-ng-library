@@ -2,12 +2,22 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { AppComponent } from './app.component'
-import { CsngFormBuilderModule } from '@cs-ng/form-builder'
+import {
+  CsngFormBuilderModule,
+  FormBuilderValidatorRegistryService,
+} from '@cs-ng/form-builder'
+import { ContainIndiaValidator } from './validatots/contain-india.validator'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, CsngFormBuilderModule],
-  providers: [],
+
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(
+    private _fbValidatorRegistryService: FormBuilderValidatorRegistryService,
+  ) {
+    this._fbValidatorRegistryService.register(new ContainIndiaValidator())
+  }
+}

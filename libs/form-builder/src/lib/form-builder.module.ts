@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { FormBuilderComponent } from './form-builder.component'
+import { HttpClientModule } from '@angular/common/http'
+import { NgModule } from '@angular/core'
+import { ReactiveFormsModule } from '@angular/forms'
+import { CsngUtilsModule, RestService } from '@cs-ng/utils'
 import { InputComponent } from './components/input/input.component'
 import { TemplateComponent } from './components/template/template.component'
-import { CsngUtilsModule, RestService } from '@cs-ng/utils'
-import { HttpClientModule } from '@angular/common/http'
+import { FormBuilderComponent } from './form-builder.component'
+import { FormBuilderChangesTrackerService } from './services/form-builder-changes-tracker.service'
 import { FormBuilderService } from './services/form-builder.service'
-import { ReactiveFormsModule } from '@angular/forms'
+import { FormBuilderValidatorRegistryService } from './registry/validator/form-builder-validator-registry.service'
 
 @NgModule({
   imports: [
@@ -17,6 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms'
   ],
   declarations: [FormBuilderComponent, InputComponent, TemplateComponent],
   exports: [FormBuilderComponent, InputComponent, TemplateComponent],
-  providers: [RestService, FormBuilderService],
+  providers: [
+    RestService,
+    FormBuilderService,
+    FormBuilderChangesTrackerService,
+    FormBuilderValidatorRegistryService,
+  ],
 })
 export class CsngFormBuilderModule {}

@@ -9,6 +9,7 @@ import { FormBuilderComponent } from './form-builder.component'
 import { FormBuilderChangesTrackerService } from './services/form-builder-changes-tracker.service'
 import { FormBuilderService } from './services/form-builder.service'
 import { FormBuilderValidatorRegistryService } from './registry/validator/form-builder-validator-registry.service'
+import { MessageComponent } from './components/message/message.component'
 
 @NgModule({
   imports: [
@@ -17,8 +18,18 @@ import { FormBuilderValidatorRegistryService } from './registry/validator/form-b
     ReactiveFormsModule,
     CsngUtilsModule,
   ],
-  declarations: [FormBuilderComponent, InputComponent, TemplateComponent],
-  exports: [FormBuilderComponent, InputComponent, TemplateComponent],
+  declarations: [
+    FormBuilderComponent,
+    InputComponent,
+    TemplateComponent,
+    MessageComponent,
+  ],
+  exports: [
+    FormBuilderComponent,
+    InputComponent,
+    TemplateComponent,
+    MessageComponent,
+  ],
   providers: [
     RestService,
     FormBuilderService,

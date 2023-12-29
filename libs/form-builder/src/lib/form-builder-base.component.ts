@@ -3,6 +3,7 @@ import { ControlBaseOptions } from './options/control-base.options'
 import { ComponentsType } from './enums/components.enum'
 import { FormBuilderControlOptions } from './options/form-builder-control.options'
 import { FormControl, FormGroup } from '@angular/forms'
+import { FormBuilderOptions } from './options/form-builder.options'
 
 @Component({
   template: '',
@@ -24,12 +25,13 @@ export abstract class FormBuilderBaseComponent
     ComponentsType.TEXTAREA
   @Input() validations = {}
   @Input() customValidators: string[] = []
-  @Input() validationMessages: Record<string, string> = {}
+  // @Input() validationMessages: Record<string, string> = {}
 
   @Input() formGroup: FormGroup = new FormGroup({})
-  @Input() formControl: any = new FormGroup({})
+  @Input() formControl: FormControl = new FormControl()
   @Input() key = ''
   @Input() control: ControlBaseOptions = {} as ControlBaseOptions
+  @Input() controls: FormBuilderOptions = {} as FormBuilderOptions
 
   getFormControl(key: string) {
     this.formControl = this.formGroup.get(key) as FormControl

@@ -3,7 +3,6 @@ import { ComponentsType, FormBuilderOptions } from '@cs-ng/form-builder'
 export const formBuilderConfig: FormBuilderOptions = {
   controls: {
     name: {
-      // type: 'text',
       label: 'Name',
       placeholder: 'Enter name',
       controlType: ComponentsType.INPUT,
@@ -11,7 +10,7 @@ export const formBuilderConfig: FormBuilderOptions = {
       tooltip: '',
       readonly: false,
       disabled: false,
-      validations: { minLength: 3, maxLength: 10 },
+      validations: { minLength: 3, maxLength: 10, required: true },
       customValidators: ['containIndia'],
       validationMessages: {
         required: 'Name is required',
@@ -21,7 +20,6 @@ export const formBuilderConfig: FormBuilderOptions = {
       },
     },
     email: {
-      // type: 'email',
       label: 'Email',
       placeholder: 'Enter email',
       controlType: ComponentsType.INPUT,
@@ -32,10 +30,11 @@ export const formBuilderConfig: FormBuilderOptions = {
       validationMessages: {
         required: 'Email is required',
         email: 'Email must be a valid email address',
-        containIndia: 'Name must contain india',
+        containIndia: 'Email must contain india',
+        containPak: 'Email must contain pak',
       },
-      customValidators: ['containIndia'],
-      validations: { email: true },
+      customValidators: ['containIndia', 'contain-pak'],
+      validations: { email: true, required: true },
     },
   },
   validationMessages: {

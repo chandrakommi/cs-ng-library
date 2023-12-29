@@ -10,3 +10,4 @@ export abstract class FormBuilderControlComponent extends FormBuilderBaseCompone
   @Input() configuration: FormBuilderOptions = {} as FormBuilderOptions
   @Input() formBuilderId = ''
 }
+

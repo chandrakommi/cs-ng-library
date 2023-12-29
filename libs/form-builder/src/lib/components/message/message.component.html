@@ -1,0 +1,10 @@
+<ng-container *ngIf="formControl.errors && formControl.touched">
+  <ng-container *ngFor="let error of formControl.errors || {} | keysIn">
+    <span class="invalid-feedback d-block">
+      {{
+        (controls.controls[key].validationMessages || {} | get : error) ||
+          (controls.validationMessages || {} | get : error)
+      }}
+    </span>
+  </ng-container>
+</ng-container>

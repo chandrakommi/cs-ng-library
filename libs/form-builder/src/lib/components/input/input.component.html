@@ -1,5 +1,5 @@
 <div class="form-group needs-validation">
-  <label [htmlFor]="">{{ control.label || '' }}</label>
+  <label [htmlFor]="key">{{ control.label || '' }}</label>
   <input
     [id]="key"
     type="text"
@@ -8,13 +8,9 @@
     [formControl]="formControl"
     [class.is-invalid]="formControl.invalid && formControl.touched"
   />
-
-  <ng-container *ngIf="formControl.errors && formControl.touched">
-    <span class="invalid-feedback">
-      <ng-container *ngFor="let error of formControl.errors | keysIn">
-        <!-- <pre>{{error}}</pre> -->
-        {{ validationMessages[error] }}
-      </ng-container>
-    </span>
-  </ng-container>
+  <cs-ng-message
+    [key]="key"
+    [formControl]="formControl"
+    [controls]="controls"
+  ></cs-ng-message>
 </div>

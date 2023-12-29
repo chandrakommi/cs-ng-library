@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core'
 import { FormBuilderOptions } from '../options/form-builder.options'
 import { FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms'
 import { keysIn } from 'lodash'
-import { ValidationOptions } from '../options/validation.options'
 import { FormBuilderChangesTrackerService } from './form-builder-changes-tracker.service'
 import { FormBuilderValidatorRegistryService } from '../registry/validator/form-builder-validator-registry.service'
 import { ControlBaseOptions } from '../options/control-base.options'
@@ -56,9 +55,7 @@ export class FormBuilderService {
 
   private _buildValidators(control: ControlBaseOptions): ValidatorFn | null {
     const { validations } = control
-    if (!validations) {
-      return null
-    }
+    if (!validations) return null
 
     const { required, email, minLength, maxLength, min, max, pattern } =
       validations
@@ -85,13 +82,12 @@ export class FormBuilderService {
 
     const validators: ValidatorFn[] = []
 
-    if (customValidators) {
-      customValidators.forEach(customValidator => {
-        validators.push(
-          this._fbValidatorRegistryService.get(customValidator).validate(),
-        )
-      })
-    }
+    customValidators.forEach(customValidator => {
+      validators.push(
+        this._fbValidatorRegistryService.get(customValidator)?.validate(),
+      )
+    })
+
     return validators.length > 0 ? Validators.compose(validators) : null
   }
 }

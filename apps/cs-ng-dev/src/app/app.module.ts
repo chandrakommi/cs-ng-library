@@ -7,6 +7,7 @@ import {
   FormBuilderValidatorRegistryService,
 } from '@cs-ng/form-builder'
 import { ContainIndiaValidator } from './validatots/contain-india.validator'
+import { ContainPakValidator } from './validatots/contain-pak.validator'
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,5 +20,6 @@ export class AppModule {
     private _fbValidatorRegistryService: FormBuilderValidatorRegistryService,
   ) {
     this._fbValidatorRegistryService.register(new ContainIndiaValidator())
+    this._fbValidatorRegistryService.register(new ContainPakValidator())
   }
 }

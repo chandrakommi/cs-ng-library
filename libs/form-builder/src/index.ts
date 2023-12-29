@@ -3,6 +3,7 @@ export * from './lib/form-builder.module'
 export * from './lib/form-builder.component'
 export * from './lib/components/template/template.component'
 export * from './lib/components/input/input.component'
+export * from './lib/components/message/message.component'
 
 export * from './lib/services/form-builder.service'
 export * from './lib/services/form-builder-changes-tracker.service'

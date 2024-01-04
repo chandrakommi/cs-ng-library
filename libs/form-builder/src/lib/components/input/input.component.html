@@ -1,0 +1,16 @@
+<div class="form-group needs-validation">
+  <label [htmlFor]="key">{{ control.label || '' }}</label>
+  <input
+    [id]="key"
+    type="text"
+    class="form-control"
+    [placeholder]="control.placeholder || ''"
+    [formControl]="formControl"
+    [class.is-invalid]="formControl.invalid && formControl.touched"
+  />
+  <cs-ng-message
+    [key]="key"
+    [formGroup]="formGroup"
+    [controls]="controls"
+  ></cs-ng-message>
+</div>

@@ -1,0 +1,18 @@
+<ng-container
+  *ngIf="
+    formGroup.controls[key] &&
+    formGroup.controls[key].errors &&
+    formGroup.controls[key].touched
+  "
+>
+  <ng-container
+    *ngFor="let error of (formGroup.controls[key].errors || {} | keysIn) || []"
+  >
+    <span class="invalid-feedback d-block">
+      {{
+        (controls.controls[key].validationMessages || {} | get : error) ||
+          (controls.validationMessages[key] || {} | get : error)
+      }}
+    </span>
+  </ng-container>
+</ng-container>

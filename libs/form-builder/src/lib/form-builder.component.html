@@ -1,0 +1,12 @@
+<ng-container *ngIf="formConfig && formConfig.controls">
+  <form [formGroup]="formGroup">
+    <ng-container *ngFor="let key of formConfig.controls | keysIn">
+      <cs-ng-template
+        [formGroup]="formGroup"
+        [key]="key"
+        [control]="formConfig.controls[key]"
+        [controls]="formConfig"
+      ></cs-ng-template>
+    </ng-container>
+  </form>
+</ng-container>

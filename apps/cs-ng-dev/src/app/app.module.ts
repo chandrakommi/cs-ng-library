@@ -6,13 +6,14 @@ import {
   CsngFormBuilderModule,
   FormBuilderValidatorRegistryService,
 } from '@cs-ng/form-builder'
-import { ContainIndiaValidator } from './validatots/contain-india.validator'
-import { ContainPakValidator } from './validatots/contain-pak.validator'
+import {
+  ContainIndiaValidator,
+  ContainPakValidator,
+} from './validatots/custom-validators.validators'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, CsngFormBuilderModule],
-
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -2,7 +2,7 @@ import { ValueObject } from '@cs-ng/utils'
 import { get } from 'lodash'
 
 export abstract class FormBuilderRegistryBehaviour<T> {
-   registry: ValueObject<T> = {}
+  registry: ValueObject<T> = {}
 
   register(...items: T[]) {
     items.forEach(item => {
@@ -10,8 +10,6 @@ export abstract class FormBuilderRegistryBehaviour<T> {
 
       this.registry[key] = item
     })
-
-    console.log(this.registry)
   }
 
   get(name: string) {

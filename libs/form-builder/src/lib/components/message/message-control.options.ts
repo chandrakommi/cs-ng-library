@@ -1,8 +1,8 @@
-import { FormControl } from '@angular/forms'
+import { FormGroup } from '@angular/forms'
 import { FormBuilderOptions } from '../../options/form-builder.options'
 
 export interface MessageControlOptions {
-  key:string
-  formControl: FormControl
+  key: string
+  formGroup: FormGroup
   controls: FormBuilderOptions
 }

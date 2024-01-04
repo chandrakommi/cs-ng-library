@@ -13,8 +13,6 @@ export class FormBuilderChangesTrackerService {
   }
 
   private async _trackChanges(): Promise<void> {
-    this._formGroup.valueChanges.subscribe(value => {
-      console.log(value)
-    })
+    // this._formGroup.valueChanges.subscribe(value => {})
   }
 }
